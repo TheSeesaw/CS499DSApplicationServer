@@ -31,7 +31,7 @@ public class Server {
         // create satellite manager and load manager
         Server.satelliteManager = new SatelliteManager();
         Server.loadManager = new LoadManager();
-        
+
         // read server properties and create server socket
         try {
             Server.properties = new PropertyHandler(serverPropertiesFile);
@@ -114,7 +114,7 @@ public class Server {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        
+
                         // get connectivity info for next satellite from satellite manager
                         satelliteInfo = Server.satelliteManager.getSatelliteForName(satelliteName);
                     }
@@ -129,14 +129,14 @@ public class Server {
                         satellite = new Socket(satelliteInfo.getHost(), satelliteInfo.getPort());
                         System.out.println("BREAK"); // also fails to create read/writer
                         // open object streams,
-                        readFromSatellite = new ObjectInputStream(satellite.getInputStream());
                         writeToSatellite = new ObjectOutputStream(satellite.getOutputStream());
-                        
+                        readFromSatellite = new ObjectInputStream(satellite.getInputStream());
+
                         // forward message (as is) to satellite,
                         writeToSatellite.writeObject(message);
                         // receive result from satellite and
                         Object resultMsg = readFromSatellite.readObject();
-                        
+
                         // write result back to client
                         writeToNet.writeObject(resultMsg);
                     } catch (Exception e) {

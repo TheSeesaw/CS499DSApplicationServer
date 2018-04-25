@@ -46,8 +46,8 @@ public class Satellite extends Thread {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
-        
+
+
         // read properties of the application server and populate serverInfo object
         // other than satellites, the as doesn't have a human-readable name, so leave it out
         try {
@@ -57,8 +57,8 @@ public class Satellite extends Thread {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
-        
+
+
         // read properties of the code server and create class loader
         // -------------------
         try {
@@ -68,11 +68,11 @@ public class Satellite extends Thread {
             ex.printStackTrace();
         }
 
-        
+
         // create tools cache
         // -------------------
         this.toolsCache = new Hashtable<String,Tool>();
-        
+
     }
 
     @Override
@@ -82,17 +82,17 @@ public class Satellite extends Thread {
         // ---------------------------------------------------------------
         // create a register message with the satellite's info as the contents
         Message registerMsg = new Message(REGISTER_SATELLITE, this.satelliteInfo);
-        
+
         // connect to the application server
         try {
             Socket appServer = new Socket(this.serverInfo.getHost(), this.serverInfo.getPort());
             ObjectOutputStream writeToAppServer = new ObjectOutputStream(appServer.getOutputStream());
             writeToAppServer.writeObject(registerMsg);
-            //appServer.close();
+            writeToAppServer.flush();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         // create server socket
         // ---------------------------------------------------------------
         try {
@@ -100,7 +100,7 @@ public class Satellite extends Thread {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         // start taking job requests in a server loop
         // ---------------------------------------------------------------
         while(true) {
@@ -111,7 +111,7 @@ public class Satellite extends Thread {
                 sThread.start();
             } catch (Exception ex) {
                 ex.printStackTrace();
-            }  
+            }
         }
     }
 
@@ -134,8 +134,8 @@ public class Satellite extends Thread {
             System.out.println("[SatelliteThread.run] Thread started.");
             // setting up object streams
             try {
-                System.out.println("BREAK"); // TODO currently breaking here (likely because something still holds in/out stream
                 this.readFromNet = new ObjectInputStream(this.jobRequest.getInputStream());
+                System.out.println("BREAK"); // TODO currently breaking here (likely because something still holds in/out stream
                 this.writeToNet = new ObjectOutputStream(this.jobRequest.getOutputStream());
                 // reading message
                 this.message = (Message)readFromNet.readObject();
@@ -185,7 +185,7 @@ public class Satellite extends Thread {
         } else {
             System.out.println(toolClassString + " already in cache.");
         }
-        
+
         return toolObject;
     }
 
