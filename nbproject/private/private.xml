@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/server/LoadManager.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/client/FibonacciClient.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/satellite/Satellite.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/client/PlusOneClient.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/server/Server.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/web/SimpleWebServer.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/job/impl/PlusOne.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/comm/ConnectivityInfo.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/job/impl/Fibonacci.java</file>
+            <file>file:/C:/Users/Krasis/Documents/NetBeansProjects/ApplicationServer/src/appserver/server/SatelliteManager.java</file>
+        </group>
+    </open-files>
+</project-private>
