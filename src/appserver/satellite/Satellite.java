@@ -135,7 +135,6 @@ public class Satellite extends Thread {
             // setting up object streams
             try {
                 this.readFromNet = new ObjectInputStream(this.jobRequest.getInputStream());
-                System.out.println("BREAK"); // TODO currently breaking here (likely because something still holds in/out stream
                 this.writeToNet = new ObjectOutputStream(this.jobRequest.getOutputStream());
                 // reading message
                 this.message = (Message)readFromNet.readObject();

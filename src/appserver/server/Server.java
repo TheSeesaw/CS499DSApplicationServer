@@ -127,7 +127,6 @@ public class Server {
                     try {
                         // connect to satellite
                         satellite = new Socket(satelliteInfo.getHost(), satelliteInfo.getPort());
-                        System.out.println("BREAK"); // also fails to create read/writer
                         // open object streams,
                         writeToSatellite = new ObjectOutputStream(satellite.getOutputStream());
                         readFromSatellite = new ObjectInputStream(satellite.getInputStream());

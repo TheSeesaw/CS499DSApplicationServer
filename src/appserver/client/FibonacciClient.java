@@ -52,7 +52,7 @@ public class FibonacciClient extends Thread implements MessageTypes {
             // read result back from server
             ObjectInputStream readFromServer = new ObjectInputStream(server.getInputStream());
             Integer result = (Integer)readFromServer.readObject();
-            System.out.println("RESULT: " + result);
+            System.out.println("Fibonacci of " + this.argument + ": " + result);
         } catch (Exception e) {
             System.err.println("[FibonacciClient.run] Error occurred");
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class FibonacciClient extends Thread implements MessageTypes {
 
 
     public static void main(String[] args) {
-        for (int i = 10; i > 0; i--) {
+        for (int i = 46; i > 0; i--) {
             (new FibonacciClient("../../config/Server.properties", i)).start();
         }
     }

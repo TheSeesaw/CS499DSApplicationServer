@@ -11,7 +11,10 @@ public class Fibonacci implements Tool {
 
     // naive implementation of fibonacci function
     public static int fibonacci(int argument) {
-        if (argument <= 1) {
+        if (argument == 0) {
+            return 0;
+        }
+        else if (argument == 1) {
             return 1;
         }
         else {
